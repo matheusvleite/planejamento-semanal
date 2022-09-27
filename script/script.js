@@ -12,4 +12,4 @@ setInterval(() => {
     'Agosto','Setembro', 'Outubro', 'Novembro', 'Dezembro');
     document.querySelector('.menu__header-item-date').innerHTML = 
     (dataCurrent.getDate() + ' de ' + monName[dataCurrent.getMonth()] + ' de ' + dataCurrent.getFullYear());
-}, 1000);
+}, 500);

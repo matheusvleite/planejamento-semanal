@@ -8,3 +8,10 @@
     --text-primary: #333333;
     --text-secondary: #3B3E45;
 }
+
+html, body {
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 17px;
+    background-color: #E5E5E5;
+}
