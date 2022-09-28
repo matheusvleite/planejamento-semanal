@@ -7,6 +7,13 @@
     --white: #FFFFFF;
     --text-primary: #333333;
     --text-secondary: #3B3E45;
+    --monday-bg: #FFA246;
+    --tuesday-bg: #35E185;
+    --thursday-bg: #B266FF;
+    --friday-bg: #66D1FF;
+    --saturday-bg: #FF66D4;
+    --sunday-bg: #FF6666;
+
 }
 
 html, body {
@@ -14,4 +21,5 @@ html, body {
     font-weight: 400;
     font-size: 17px;
     background-color: #E5E5E5;
+    height: 80vh;
 }

@@ -53,3 +53,55 @@
     cursor: pointer;
     margin: 1rem;
 }
+
+.filter__days-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+}
+
+.filter__days-list-item {
+    font-weight: 700;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 9px 9px 0px 0px;
+}
+
+.Hour {
+    padding: 2rem 1rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    font-family: var(--font-secondary);
+    color: var(--text-secondary);
+}
+
+.Monday {
+    background-color: var(--monday-bg);
+}
+
+.Tuesday {
+    background-color: var(--tuesday-bg);
+}
+
+.Wednesday {
+    background-color: var(--blue-main);
+}
+
+.Thursday {
+    background-color: var(--thursday-bg);
+}
+
+.Friday {
+    background-color: var(--friday-bg);
+}
+
+.Saturday {
+    background-color: var(--saturday-bg);
+}
+
+.Sunday {
+    background-color: var(--sunday-bg);
+}
