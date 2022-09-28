@@ -52,23 +52,25 @@
     </header>
     <main>
         <section class="filter__form">
-            <input type="text" class="filter__form-input" name="Atividade" id="Atividade" placeholder="Atividade">
-            <select name="day" id="select-day" class="filter__form-select">
-                <option value="Segunda-feira">Segunda-feira</option>
-                <option class="Terça-feira">Terça-feira</option>
-                <option class="Quarta-feira">Quarta-feira</option>
-                <option class="Quinta-feira">Quinta-feira</option>
-                <option class="Sexta-feira">Sexta-feira</option>
-                <option class="Sabado">Sabado</option>
-                <option class="Domingo">Domingo</option>
+            <form id="toDo-form">
+            <input type="text" class="filter__form-input" name="Activity" id="toDo-input" placeholder="Atividade" required>
+            <select name="day" id="select-day" class="filter__form-select" required>
+                <option value="Monday">Segunda-feira</option>
+                <option value="Tuesday">Terça-feira</option>
+                <option value="Wednesday">Quarta-feira</option>
+                <option value="Thursday">Quinta-feira</option>
+                <option value="Friday">Sexta-feira</option>
+                <option value="Saturday">Sabado</option>
+                <option value="Sunday ">Domingo</option>
             </select>
-            <input type="text" class="filter__form-input-hour" name="Atividade" id="Atividade" placeholder="00h00m">
-            <button class="filter__form-addButton">
+            <input type="text" class="filter__form-input-hour" name="Hour" id="hourInput" placeholder="00h00m" required>
+            <button class="filter__form-addButton" type="submit">
                 <i class="fa-solid fa-plus"></i> Adicionar Atividade
             </button>
             <button class="filter__form-removeButton">
                 <i class="fa-solid fa-minus"></i> Excluir Todos
             </button>
+            </form>
         </section>
         <section class="filter__days">
             <ul class="filter__days-list">
@@ -84,9 +86,9 @@
         </section>
         <section class="cards__planner">
             <ul class="cards__planner-list">
-                <li class="cards__planner-item">
+                <!-- <li class="cards__planner-item">
                     <div class="cards__planner-hour">
-                        10h30m
+                        <h2>10h30m</h2>
                     </div>
                     <div class="cards__planner-task">
                         <p class="cards__planner-task-text">
@@ -114,44 +116,7 @@
                         </p>
                         <button class="cards__planner-task-button">Apagar</button>
                     </div>
-                </li>
-                <li class="cards__planner-item">
-                    <div class="cards__planner-hour">
-                        10h30m
-                    </div>
-                    <div class="cards__planner-task">
-                        <p class="cards__planner-task-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </p>
-                        <button class="cards__planner-task-button">Apagar</button>
-                    </div>
-                </li>
-                <li class="cards__planner-item">
-                    <div class="cards__planner-hour">
-                        10h30m
-                    </div>
-                    <div class="cards__planner-task">
-                        <p class="cards__planner-task-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </p>
-                        <button class="cards__planner-task-button">Apagar</button>
-                    </div>
-                </li>
-                <li class="cards__planner-item">
-                    <div class="cards__planner-hour">
-                        10h30m
-                    </div>
-                    <div class="cards__planner-task">
-                        <p class="cards__planner-task-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </p>
-                        <button class="cards__planner-task-button">Apagar</button>
-                    </div>
-                </li>
-               
+                </li>  -->
             </ul>
         </section>
     </main>
