@@ -12,8 +12,7 @@
 }
 
 .cards__planner-hour {
-    padding: 2rem 1rem;
-    background-color: var(--hour-bg);
+    padding: 2rem 1.5rem;
     border-radius: 10px;
     font-family: var(--font-secondary);
 }
@@ -35,14 +34,6 @@
     padding: 1rem;
     font-size: 20px;
     width: 425px;
-}
-
-.cards__planner-task::before {
-    content: "";
-    width: 14px;
-    height: 85px;
-    background: #6688FF;
-    border-radius: 15px 0px 0px 15px;
 }
 
 .cards__planner-task-button {
@@ -67,8 +58,87 @@
 
 .sameHour::before {
     content: "";
-    width: 24px;
+    width: 14px;
     height: 85px;
     background: var(--error);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.Monday {
+    background-color: var(--monday-bg);
+}
+
+.Tuesday {
+    background-color: var(--tuesday-bg);
+}
+
+.Wednesday {
+    background-color: var(--blue-main);
+}
+
+.Thursday {
+    background-color: var(--thursday-bg);
+}
+
+.Friday {
+    background-color: var(--friday-bg);
+}
+
+.Saturday {
+    background-color: var(--saturday-bg);
+}
+
+.Sunday {
+    background-color: var(--sunday-bg);
+}
+
+.MondayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--monday-bg);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.TuesdayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--thursday-bg);
+    border-radius: 15px 0px 0px 15px;
+}
+.WednesdayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--blue-main);
+    border-radius: 15px 0px 0px 15px;
+}
+.ThursdayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--thursday-bg);
+    border-radius: 15px 0px 0px 15px;
+}
+.FridayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--friday-bg);
+    border-radius: 15px 0px 0px 15px;
+}
+.SaturdayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--saturday-bg);
+    border-radius: 15px 0px 0px 15px;
+}
+.SundayBefore::before {
+    content: "";
+    width: 14px;
+    height: 85px;
+    background-color: var(--sunday-bg);
     border-radius: 15px 0px 0px 15px;
 }
