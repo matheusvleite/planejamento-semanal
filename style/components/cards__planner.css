@@ -104,7 +104,7 @@
     content: "";
     width: 14px;
     height: 85px;
-    background-color: var(--thursday-bg);
+    background-color: var(--tuesday-bg);
     border-radius: 15px 0px 0px 15px;
 }
 .WednesdayBefore::before {
