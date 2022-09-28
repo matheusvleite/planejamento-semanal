@@ -1,0 +1,55 @@
+.filter__form {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.filter__form-input {
+    padding: 0.625rem 5rem;
+    border-radius: 10px;
+    border: 1px solid var(--green-main);
+    outline: none;
+    font-size: 14px;
+    margin: 1rem;
+}
+
+.filter__form-select {
+    padding: 0.625rem 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--green-main);
+    outline: none;
+    font-size: 14px;
+}
+
+.filter__form-input-hour {
+    padding: 0.625rem 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--green-main);
+    outline: none;
+    font-size: 14px;
+    margin: 1rem;
+}
+
+.filter__form-addButton {
+    background-color: var(--green-main);
+    border: none;
+    outline: none;
+    padding: 0.625rem 2rem;
+    border-radius: 10px;
+    color: var(--white);
+    font-family: var(--font-secondary);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.filter__form-removeButton {
+    background-color: var(--red-main);
+    border: none;
+    outline: none;
+    padding: 0.625rem 3rem;
+    border-radius: 10px;
+    color: var(--white);
+    font-family: var(--font-secondary);
+    font-size: 17px;
+    cursor: pointer;
+    margin: 1rem;
+}

@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!--  FONT AWESOME  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--  SCRIPTS  -->
     <script src="./script/script.js" defer></script>
 </head>
@@ -43,7 +45,32 @@
             </ul>
         </nav>
     </header>
-   
+    <main>
+        <section class="filter__form">
+            <input type="text" class="filter__form-input" name="Atividade" 
+            id="Atividade" placeholder="Atividade">
+            <select name="day" id="select-day" class="filter__form-select">
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option class="Terça-feira">Terça-feira</option>
+                <option class="Quarta-feira">Quarta-feira</option>
+                <option class="Quinta-feira">Quinta-feira</option>
+                <option class="Sexta-feira">Sexta-feira</option>
+                <option class="Sabado">Sabado</option>
+                <option class="Domingo">Domingo</option>
+            </select>
+            <input type="text" class="filter__form-input-hour" name="Atividade" 
+            id="Atividade" placeholder="00h00m">
+            <button class="filter__form-addButton">
+                <i class="fa-solid fa-plus"></i> Adicionar Atividade
+            </button>
+            <button class="filter__form-removeButton">
+                <i class="fa-solid fa-minus"></i> Excluir Todos
+            </button>
+        </section>
+        <section class="filter">
+
+        </section>
+    </main>
     
 </body>
 </html>
