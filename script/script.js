@@ -59,6 +59,9 @@ const cardsPlanner = document.querySelector('.cards__planner-list');
         toDoActivity.appendChild(toDoActivityRemove);
 
         cardsPlanner.appendChild(toDoCard);
+
+        toDoinput.value = "";
+        hourInput.value = "";
     }
 
 // EVENTS
@@ -74,3 +77,12 @@ toDoForm.addEventListener('submit', (e) => {
     saveTodo(inputValue,hourInputValue);
    
 })
+
+ document.addEventListener('click', (e) => {
+    const targetElement = e.target;
+    const parentElement = targetElement.closest('li');
+
+    if(targetElement.classList.contains('cards__planner-task-button')) {
+        parentElement.remove();
+    }
+ })   
