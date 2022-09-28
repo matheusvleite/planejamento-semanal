@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +12,16 @@
     <!--  FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
     <!--  FONT AWESOME  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--  SCRIPTS  -->
     <script src="./script/script.js" defer></script>
 </head>
+
 <body>
 
     <header>
@@ -47,8 +52,7 @@
     </header>
     <main>
         <section class="filter__form">
-            <input type="text" class="filter__form-input" name="Atividade" 
-            id="Atividade" placeholder="Atividade">
+            <input type="text" class="filter__form-input" name="Atividade" id="Atividade" placeholder="Atividade">
             <select name="day" id="select-day" class="filter__form-select">
                 <option value="Segunda-feira">Segunda-feira</option>
                 <option class="Terça-feira">Terça-feira</option>
@@ -58,8 +62,7 @@
                 <option class="Sabado">Sabado</option>
                 <option class="Domingo">Domingo</option>
             </select>
-            <input type="text" class="filter__form-input-hour" name="Atividade" 
-            id="Atividade" placeholder="00h00m">
+            <input type="text" class="filter__form-input-hour" name="Atividade" id="Atividade" placeholder="00h00m">
             <button class="filter__form-addButton">
                 <i class="fa-solid fa-plus"></i> Adicionar Atividade
             </button>
@@ -79,7 +82,80 @@
                 <li class="filter__days-list-item Sunday">Domingo</li>
             </ul>
         </section>
+        <section class="cards__planner">
+            <ul class="cards__planner-list">
+                <li class="cards__planner-item">
+                    <div class="cards__planner-hour">
+                        10h30m
+                    </div>
+                    <div class="cards__planner-task">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                </li>
+                <li class="cards__planner-item">
+                    <div class="cards__planner-hour sameHour-bg">
+                        10h30m
+                    </div>
+                    <div class="cards__planner-task">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                    <div class="cards__planner-task sameHour">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                </li>
+                <li class="cards__planner-item">
+                    <div class="cards__planner-hour">
+                        10h30m
+                    </div>
+                    <div class="cards__planner-task">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                </li>
+                <li class="cards__planner-item">
+                    <div class="cards__planner-hour">
+                        10h30m
+                    </div>
+                    <div class="cards__planner-task">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                </li>
+                <li class="cards__planner-item">
+                    <div class="cards__planner-hour">
+                        10h30m
+                    </div>
+                    <div class="cards__planner-task">
+                        <p class="cards__planner-task-text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                             elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </p>
+                        <button class="cards__planner-task-button">Apagar</button>
+                    </div>
+                </li>
+               
+            </ul>
+        </section>
     </main>
-    
+
 </body>
+
 </html>

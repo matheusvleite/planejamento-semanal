@@ -1,0 +1,73 @@
+
+.cards__planner-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards__planner-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-left: 4.8rem;
+}
+
+.cards__planner-hour {
+    padding: 2rem 1rem;
+    background-color: var(--hour-bg);
+    border-radius: 10px;
+    font-family: var(--font-secondary);
+}
+
+.cards__planner-task {
+    width: 512px;
+    height: 85px;
+    margin-left: 1rem;
+    background-color: var(--white);
+    box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(10.5px);
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cards__planner-task-text {
+    padding: 1rem 2rem;
+    font-size: 20px;
+}
+
+.cards__planner-task::before {
+    content: "";
+    width: 24px;
+    height: 85px;
+    background: #6688FF;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.cards__planner-task-button {
+ background-color: var(--bg-button);
+ color: var(--white) ;
+ border-radius: 4px;
+ outline: none;
+ border: none;
+ padding: .3rem;
+ position: absolute;
+ top: 3%;
+ right: 1%;
+ cursor: pointer;
+}
+
+
+/* utilities */
+
+.sameHour-bg {
+    background-color: var(--error-hour);
+}
+
+.sameHour::before {
+    content: "";
+    width: 24px;
+    height: 85px;
+    background: var(--error);
+    border-radius: 15px 0px 0px 15px;
+}

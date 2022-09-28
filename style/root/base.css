@@ -13,7 +13,10 @@
     --friday-bg: #66D1FF;
     --saturday-bg: #FF66D4;
     --sunday-bg: #FF6666;
-
+    --hour-bg: rgba(102, 136, 255, 0.4);
+    --bg-button: #98031E;
+    --error: #F55D5D;
+    --error-hour: #f55d5db7;
 }
 
 html, body {
