@@ -19,10 +19,13 @@
     --error-hour: #f55d5db7;
 }
 
-html, body {
+body {
     font-family: var(--font-main);
     font-weight: 400;
     font-size: 17px;
     background-color: #E5E5E5;
-    height: 80vh;
+    background-image: url('../../img/bola-LogoCompasso\ 1.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    height: 100vh;
 }
