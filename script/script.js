@@ -26,13 +26,14 @@ const toDoinput = document.querySelector('#toDo-input');
 const toDoday = document.querySelector('#select-day');
 const hourInput = document.querySelector('#hourInput');
 const cardsPlanner = document.querySelector('.cards__planner-list');
-const buttonSaveLocalStorage = document.querySelector('.menu__header-item-saveButton')
+const buttonSaveLocalStorage = document.querySelector('.menu__header-item-saveButton');
+const buttonCleanLocalStorage = document.querySelector('.menu__header-item-deleteButton');
 
 // FUNCTIONS
     const saveTodo = (toDo, toDoday ,hourTodo) => {
         const toDoCard = document.createElement('li');
         toDoCard.classList.add('cards__planner-item');
-        
+   
         const toDayValue = toDoday;
 
         const toDoHour = document.createElement('div');
@@ -62,13 +63,17 @@ const buttonSaveLocalStorage = document.querySelector('.menu__header-item-saveBu
         toDoActivity.appendChild(toDoTextActivity);
         toDoActivity.appendChild(toDoActivityRemove);
       
-        
         cardsPlanner.appendChild(toDoCard);
 
         toDoinput.value = "";
         hourInput.value = "";
 
+        toDoActivityRemove.addEventListener('click' , () => {
+            cardsPlanner.removeChild(toDoCard);
+        }) 
     }
+
+    
 
 // EVENTS
 
@@ -84,11 +89,11 @@ toDoForm.addEventListener('submit', (e) => {
    
 })
 
- document.addEventListener('click', (e) => {
-    const targetElement = e.target;
-    const parentElement = targetElement.closest('li');
 
-    if(targetElement.classList.contains('cards__planner-task-button')) {
-        parentElement.remove();
-    }
- })   
+ buttonSaveLocalStorage.addEventListener('click', () => {
+    alert('TESTE');
+ })
+
+ buttonCleanLocalStorage.addEventListener('click', () => {
+    localStorage.clear();
+ })

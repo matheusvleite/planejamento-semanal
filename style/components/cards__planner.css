@@ -56,7 +56,7 @@
     background-color: var(--error-hour);
 }
 
-.sameHour::before {
+.sameHour-bg::before {
     content: "";
     width: 14px;
     height: 85px;
