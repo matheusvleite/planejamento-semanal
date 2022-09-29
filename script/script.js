@@ -34,22 +34,19 @@ const buttonCleanLocalStorage = document.querySelector('.menu__header-item-delet
         const toDoCard = document.createElement('li');
         toDoCard.classList.add('cards__planner-item');
    
-        const toDayValue = toDoday;
-
         const toDoHour = document.createElement('div');
         toDoHour.classList.add('cards__planner-hour');
-        toDoHour.classList.add(toDayValue);
+        toDoHour.classList.add(toDoday);
             
         const toDoTextHour = document.createElement('h2');
         toDoTextHour.innerHTML = hourTodo;
-
 
         toDoCard.appendChild(toDoHour);
         toDoHour.appendChild(toDoTextHour);
             
         const toDoActivity = document.createElement('div');
         toDoActivity.classList.add('cards__planner-task');
-        toDoActivity.classList.add(toDayValue + 'Before')
+        toDoActivity.classList.add(toDoday + 'Before')
             
         const toDoTextActivity = document.createElement('p');
         toDoTextActivity.classList.add('cards__planner-task-text')
