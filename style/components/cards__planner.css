@@ -52,6 +52,10 @@
 
 /* utilities */
 
+.clicked{
+    padding: 0.7rem 3rem;
+}
+
 .sameHour-bg {
     background-color: var(--error-hour);
 }
@@ -66,30 +70,37 @@
 
 .Monday {
     background-color: var(--monday-bg);
+    cursor: pointer;
 }
 
 .Tuesday {
     background-color: var(--tuesday-bg);
+    cursor: pointer;
 }
 
 .Wednesday {
     background-color: var(--blue-main);
+    cursor: pointer;
 }
 
 .Thursday {
     background-color: var(--thursday-bg);
+    cursor: pointer;
 }
 
 .Friday {
     background-color: var(--friday-bg);
+    cursor: pointer;
 }
 
 .Saturday {
     background-color: var(--saturday-bg);
+    cursor: pointer;
 }
 
 .Sunday {
     background-color: var(--sunday-bg);
+    cursor: pointer;
 }
 
 .MondayBefore::before {
