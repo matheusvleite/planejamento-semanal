@@ -1,22 +1,26 @@
 // HEADER HOUR AND DATE
 
 setInterval(() => {
+
    let dataCurrent = new Date();
+
    //HOUR
-   function fix(hour) {
-      if (hour < 10) {
-         hour = "0" + hour
+
+   function fix(number) {
+      if (number < 10) {
+         number = "0" + number
       }
-      return hour;
+      return number;
    }
    document.querySelector('.menu__header-item-hour').innerHTML =
       (fix(dataCurrent.getHours()) + ':' + fix(dataCurrent.getMinutes()));
    //DATE
+
    day = new Array('Janeiro', 'Fevereiro',
       'Março', 'Abril', 'Maio', 'Junho', 'Julho',
       'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
    document.querySelector('.menu__header-item-date').innerHTML =
-      (dataCurrent.getDate() + ' de ' + day[dataCurrent.getMonth()] + ' de ' + dataCurrent.getFullYear());
+      (fix(dataCurrent.getDate()) + ' de ' + day[dataCurrent.getMonth()] + ' de ' + dataCurrent.getFullYear());
 }, 500);
 
 // SELECT ELEMENTS
@@ -36,26 +40,34 @@ const buttonThursday = document.getElementById('thursday')
 const buttonFriday = document.getElementById('friday')
 const buttonSaturday = document.getElementById('saturday')
 const buttonSunday = document.getElementById('sunday')
+const buttonRemoveTask = document.querySelector('.cards__planner-task-button');
 
 
 // FUNCTIONS
 
 function clear() {
 
-   toDoinput.value = ""
-   hourInput.value = ""
+   toDoinput.value = "";
+   hourInput.value = "";
 
 }
 
-const schedule = []
+function deletCard(index) {
+   schedule.splice(index, 1);
+   renderSchedule(schedule);
+}
+
+
+const schedule = [];
 
 function saveTodo(toDo, toDoday, hourTodo) {
 
    schedule.push({ toDo, toDoday, hourTodo })
 
-   renderSchedule();
+   renderSchedule(schedule);
 
 }
+
 
 function renderSchedule(schedule) {
 
@@ -90,6 +102,7 @@ function renderSchedule(schedule) {
       const toDoActivityRemove = document.createElement('button');
       toDoActivityRemove.classList.add('cards__planner-task-button');
       toDoActivityRemove.innerText = 'Apagar';
+      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(item)})`)
 
       toDoCard.appendChild(toDoActivity);
       toDoActivity.appendChild(toDoTextActivity);
@@ -97,10 +110,9 @@ function renderSchedule(schedule) {
 
       cardsPlanner.appendChild(toDoCard);
 
-      console.log(item.toDo)
-
    }
 }
+
 // LOCALSTORAGE
 
 function saveLocalStorage() {
@@ -122,10 +134,11 @@ toDoForm.addEventListener('submit', (e) => {
 })
 
 buttonRemoveAll.addEventListener('click', () => {
-
+   alert('TESTE')
 })
 
 // BUTTONS LOCALSTORAGE
+
 buttonSaveLocalStorage.addEventListener('click', () => {
    saveLocalStorage()
 })
@@ -175,13 +188,12 @@ buttonSaturday.addEventListener('click', () => {
 
    const filteredArray = schedule.filter((item) => item.toDoday === 'Saturday');
    renderSchedule(filteredArray);
-
 })
 
 buttonSunday.addEventListener('click', () => {
 
    const filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
    renderSchedule(filteredArray);
-
 })
+
 

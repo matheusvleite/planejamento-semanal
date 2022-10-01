@@ -22,7 +22,8 @@
 
 .filter__form {
     margin-top: 10rem;
-    text-align: center;
+    justify-content: center;
+    display: flex;
 }
 
 .filter__form-input {
