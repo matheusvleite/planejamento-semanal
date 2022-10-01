@@ -42,25 +42,25 @@ const buttonSaturday = document.getElementById('saturday')
 const buttonSunday = document.getElementById('sunday')
 const buttonRemoveTask = document.querySelector('.cards__planner-task-button');
 
+// VARIABLES
+
+const schedule = [];
 
 // FUNCTIONS
 
-function clear() {
+function clear() { // CLEAR INPUT
 
    toDoinput.value = "";
    hourInput.value = "";
 
 }
 
-function deletCard(index) {
+function deletCard(index) { // DELET CARD
    schedule.splice(index, 1);
    renderSchedule(schedule);
 }
 
-
-const schedule = [];
-
-function saveTodo(toDo, toDoday, hourTodo) {
+function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
 
    schedule.push({ toDo, toDoday, hourTodo })
 
@@ -68,11 +68,17 @@ function saveTodo(toDo, toDoday, hourTodo) {
 
 }
 
-
-function renderSchedule(schedule) {
+function renderSchedule(schedule) { // RENDERING CARDS
 
    cardsPlanner.innerHTML = '';
-
+ 
+   schedule.sort(function (a,b) { // FUNCTION ORDER TIME CARDS
+      if(a.hourTodo < b.hourTodo) {
+         return -1;
+      }else {
+         return true;
+      }
+   });
 
    for (let index = 0; index < schedule.length; index++) {
 
@@ -121,7 +127,7 @@ function saveLocalStorage() {
 
 // EVENTS
 
-toDoForm.addEventListener('submit', (e) => {
+toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
 
    e.preventDefault();
 
@@ -133,17 +139,17 @@ toDoForm.addEventListener('submit', (e) => {
 
 })
 
-buttonRemoveAll.addEventListener('click', () => {
+buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
    alert('TESTE')
 })
 
 // BUTTONS LOCALSTORAGE
 
-buttonSaveLocalStorage.addEventListener('click', () => {
+buttonSaveLocalStorage.addEventListener('click', () => { // SAVE
    saveLocalStorage()
 })
 
-buttonCleanLocalStorage.addEventListener('click', () => {
+buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
    localStorage.clear();
 })
 
