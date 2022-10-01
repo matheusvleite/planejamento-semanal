@@ -44,7 +44,7 @@ const buttonRemoveTask = document.querySelector('.cards__planner-task-button');
 
 // VARIABLES
 
-const schedule = [];
+const schedule = [] = JSON.parse(localStorage.getItem('toDo')) || [];
 
 // FUNCTIONS
 
@@ -53,6 +53,12 @@ function clear() { // CLEAR INPUT
    toDoinput.value = "";
    hourInput.value = "";
 
+}
+
+// LOCALSTORAGE
+
+function saveLocalStorage() {
+   localStorage.setItem('toDo', JSON.stringify(schedule));
 }
 
 function deletCard(index) { // DELET CARD
@@ -119,12 +125,6 @@ function renderSchedule(schedule) { // RENDERING CARDS
    }
 }
 
-// LOCALSTORAGE
-
-function saveLocalStorage() {
-   alert('.')
-}
-
 // EVENTS
 
 toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
@@ -150,7 +150,9 @@ buttonSaveLocalStorage.addEventListener('click', () => { // SAVE
 })
 
 buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
-   localStorage.clear();
+   localStorage.removeItem('toDo');
+   schedule.length = 0;
+   renderSchedule();
 })
 
 //BUTTONS DAYS
@@ -201,5 +203,3 @@ buttonSunday.addEventListener('click', () => {
    const filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
    renderSchedule(filteredArray);
 })
-
-
