@@ -40,7 +40,6 @@ const buttonThursday = document.getElementById('thursday')
 const buttonFriday = document.getElementById('friday')
 const buttonSaturday = document.getElementById('saturday')
 const buttonSunday = document.getElementById('sunday')
-const buttonRemoveTask = document.querySelector('.cards__planner-task-button');
 
 // VARIABLES
 
@@ -65,10 +64,12 @@ function saveLocalStorage() { // LOCALSTORAGE
 
 }
 
-function deletCard(item) { // DELET CARD
-
-   schedule.splice(item, 1);
-   renderSchedule();
+function deletCard(index) { // DELET CARD
+   
+   filteredArray.splice(index, 1);
+ 
+   renderSchedule(filteredArray);
+   
 }
 
 function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
@@ -76,7 +77,8 @@ function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
    schedule.push({ toDo, toDoday, hourTodo });
 
    if(selectedDay) {
-       filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+
+      filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
  
       if(filteredArray.length >= 0) renderSchedule(filteredArray);
    }
@@ -127,7 +129,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
       const toDoActivityRemove = document.createElement('button');
       toDoActivityRemove.classList.add('cards__planner-task-button');
       toDoActivityRemove.innerText = 'Apagar';
-      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(item)})`)
+      toDoActivityRemove.setAttribute('onclick', `deletCard(${filteredArray.indexOf(item)})`)
 
       toDoCard.appendChild(toDoActivity);
       toDoActivity.appendChild(toDoTextActivity);
@@ -153,7 +155,11 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
 })
 
 buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
-   alert('TESTE')
+   if(selectedDay) {
+      alert('Olá!');
+   }else {
+      alert('Não há nenhum dia selecionado para excluir.')
+   }
 })
 
 // BUTTONS LOCALSTORAGE
@@ -173,9 +179,10 @@ buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
 
 
 buttonMonday.addEventListener('click', () => {
+
    selectedDay = 'Monday';
-  
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Monday');
+   
+   filteredArray = schedule.filter((item) => item.toDoday === 'Monday');
    renderSchedule(filteredArray);
 
 
@@ -185,7 +192,7 @@ buttonTuesday.addEventListener('click', () => {
 
    selectedDay = 'Tuesday';
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Tuesday');
+   filteredArray = schedule.filter((item) => item.toDoday === 'Tuesday');
    renderSchedule(filteredArray);
 
 })
@@ -194,7 +201,7 @@ buttonWednesday.addEventListener('click', () => {
 
    selectedDay = 'Wednesday'
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Wednesday');
+   filteredArray = schedule.filter((item) => item.toDoday === 'Wednesday');
    renderSchedule(filteredArray);
 
 })
@@ -203,7 +210,7 @@ buttonThursday.addEventListener('click', () => {
 
    selectedDay = 'Thursday'
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Thursday');
+   filteredArray = schedule.filter((item) => item.toDoday === 'Thursday');
    renderSchedule(filteredArray);
    
 })
@@ -212,7 +219,7 @@ buttonFriday.addEventListener('click', () => {
 
    selectedDay = 'Friday'
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Friday');
+  filteredArray = schedule.filter((item) => item.toDoday === 'Friday');
    renderSchedule(filteredArray);
   
 })
@@ -221,7 +228,7 @@ buttonSaturday.addEventListener('click', () => {
 
    selectedDay = 'Saturday'
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Saturday');
+   filteredArray = schedule.filter((item) => item.toDoday === 'Saturday');
    renderSchedule(filteredArray);
   
 })
@@ -230,7 +237,7 @@ buttonSunday.addEventListener('click', () => {
 
    selectedDay = 'Sunday'
 
-   const filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
+   filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
    renderSchedule(filteredArray);
  
 })
