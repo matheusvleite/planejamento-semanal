@@ -46,6 +46,10 @@ const buttonRemoveTask = document.querySelector('.cards__planner-task-button');
 
 const schedule = [] = JSON.parse(localStorage.getItem('toDo')) || [];
 
+let selectedDay = 'Monday';
+
+let filteredArray;
+
 // FUNCTIONS
 
 function clear() { // CLEAR INPUT
@@ -55,24 +59,33 @@ function clear() { // CLEAR INPUT
 
 }
 
-// LOCALSTORAGE
+function saveLocalStorage() { // LOCALSTORAGE
 
-function saveLocalStorage() {
    localStorage.setItem('toDo', JSON.stringify(schedule));
+
 }
 
-function deletCard(index) { // DELET CARD
-   schedule.splice(index, 1);
-   renderSchedule(schedule);
+function deletCard(item) { // DELET CARD
+
+   schedule.splice(item, 1);
+   renderSchedule();
 }
 
 function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
 
-   schedule.push({ toDo, toDoday, hourTodo })
+   schedule.push({ toDo, toDoday, hourTodo });
 
-   renderSchedule(schedule);
-
+   if(selectedDay) {
+       filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+ 
+      if(filteredArray.length >= 0) renderSchedule(filteredArray);
+   }
+    
 }
+
+filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+
+renderSchedule(filteredArray);
 
 function renderSchedule(schedule) { // RENDERING CARDS
 
@@ -121,7 +134,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
       toDoActivity.appendChild(toDoActivityRemove);
 
       cardsPlanner.appendChild(toDoCard);
-
+      
    }
 }
 
@@ -136,7 +149,7 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
    const hourInputValue = hourInput.value;
    clear();
    saveTodo(inputValue, toDodayValue, hourInputValue);
-
+  
 })
 
 buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
@@ -152,19 +165,25 @@ buttonSaveLocalStorage.addEventListener('click', () => { // SAVE
 buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
    localStorage.removeItem('toDo');
    schedule.length = 0;
-   renderSchedule();
+   renderSchedule(schedule);
 })
+
 
 //BUTTONS DAYS
 
-buttonMonday.addEventListener('click', () => {
 
+buttonMonday.addEventListener('click', () => {
+   selectedDay = 'Monday';
+  
    const filteredArray = schedule.filter((item) => item.toDoday === 'Monday');
    renderSchedule(filteredArray);
+
 
 })
 
 buttonTuesday.addEventListener('click', () => {
+
+   selectedDay = 'Tuesday';
 
    const filteredArray = schedule.filter((item) => item.toDoday === 'Tuesday');
    renderSchedule(filteredArray);
@@ -173,6 +192,8 @@ buttonTuesday.addEventListener('click', () => {
 
 buttonWednesday.addEventListener('click', () => {
 
+   selectedDay = 'Wednesday'
+
    const filteredArray = schedule.filter((item) => item.toDoday === 'Wednesday');
    renderSchedule(filteredArray);
 
@@ -180,26 +201,38 @@ buttonWednesday.addEventListener('click', () => {
 
 buttonThursday.addEventListener('click', () => {
 
+   selectedDay = 'Thursday'
+
    const filteredArray = schedule.filter((item) => item.toDoday === 'Thursday');
    renderSchedule(filteredArray);
-
+   
 })
 
 buttonFriday.addEventListener('click', () => {
 
+   selectedDay = 'Friday'
+
    const filteredArray = schedule.filter((item) => item.toDoday === 'Friday');
    renderSchedule(filteredArray);
-
+  
 })
 
 buttonSaturday.addEventListener('click', () => {
 
+   selectedDay = 'Saturday'
+
    const filteredArray = schedule.filter((item) => item.toDoday === 'Saturday');
    renderSchedule(filteredArray);
+  
 })
 
 buttonSunday.addEventListener('click', () => {
 
+   selectedDay = 'Sunday'
+
    const filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
    renderSchedule(filteredArray);
+ 
 })
+
+
