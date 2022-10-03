@@ -64,13 +64,22 @@ function saveLocalStorage() { // LOCALSTORAGE
 
 }
 
-function deletCard(index) { // DELET CARD
-   
-   filteredArray.splice(index, 1);
- 
-   renderSchedule(filteredArray);
-   
+function filter() {
+
+   filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+
 }
+
+function deletCard(index) { // DELET CARD
+  
+   schedule.splice(index, 1);
+
+   filter()
+
+   renderSchedule(filteredArray);
+
+}
+
 
 function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
 
@@ -78,14 +87,14 @@ function saveTodo(toDo, toDoday, hourTodo) { // GET VALUES
 
    if(selectedDay) {
 
-      filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+      filter()
  
       if(filteredArray.length >= 0) renderSchedule(filteredArray);
    }
     
 }
 
-filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
+filter()
 
 renderSchedule(filteredArray);
 
@@ -129,7 +138,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
       const toDoActivityRemove = document.createElement('button');
       toDoActivityRemove.classList.add('cards__planner-task-button');
       toDoActivityRemove.innerText = 'Apagar';
-      toDoActivityRemove.setAttribute('onclick', `deletCard(${filteredArray.indexOf(item)})`)
+      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(toDoday)})`);
 
       toDoCard.appendChild(toDoActivity);
       toDoActivity.appendChild(toDoTextActivity);
@@ -149,23 +158,23 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
    const inputValue = toDoinput.value;
    const toDodayValue = toDoday.value;
    const hourInputValue = hourInput.value;
-   clear();
+   // clear();
    saveTodo(inputValue, toDodayValue, hourInputValue);
   
 })
 
 buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
    if(selectedDay) {
-      alert('Olá!');
+      
    }else {
-      alert('Não há nenhum dia selecionado para excluir.')
+      alert('Não há nenhum dia selecionado para excluir.');
    }
 })
 
 // BUTTONS LOCALSTORAGE
 
 buttonSaveLocalStorage.addEventListener('click', () => { // SAVE
-   saveLocalStorage()
+   saveLocalStorage();
 })
 
 buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
@@ -181,8 +190,8 @@ buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
 buttonMonday.addEventListener('click', () => {
 
    selectedDay = 'Monday';
-   
-   filteredArray = schedule.filter((item) => item.toDoday === 'Monday');
+
+   filter()
    renderSchedule(filteredArray);
 
 
@@ -191,8 +200,7 @@ buttonMonday.addEventListener('click', () => {
 buttonTuesday.addEventListener('click', () => {
 
    selectedDay = 'Tuesday';
-
-   filteredArray = schedule.filter((item) => item.toDoday === 'Tuesday');
+   filter()
    renderSchedule(filteredArray);
 
 })
@@ -201,7 +209,7 @@ buttonWednesday.addEventListener('click', () => {
 
    selectedDay = 'Wednesday'
 
-   filteredArray = schedule.filter((item) => item.toDoday === 'Wednesday');
+   filter()
    renderSchedule(filteredArray);
 
 })
@@ -210,7 +218,7 @@ buttonThursday.addEventListener('click', () => {
 
    selectedDay = 'Thursday'
 
-   filteredArray = schedule.filter((item) => item.toDoday === 'Thursday');
+   filter()
    renderSchedule(filteredArray);
    
 })
@@ -219,7 +227,7 @@ buttonFriday.addEventListener('click', () => {
 
    selectedDay = 'Friday'
 
-  filteredArray = schedule.filter((item) => item.toDoday === 'Friday');
+   filter()
    renderSchedule(filteredArray);
   
 })
@@ -228,7 +236,7 @@ buttonSaturday.addEventListener('click', () => {
 
    selectedDay = 'Saturday'
 
-   filteredArray = schedule.filter((item) => item.toDoday === 'Saturday');
+   filter()
    renderSchedule(filteredArray);
   
 })
@@ -237,7 +245,7 @@ buttonSunday.addEventListener('click', () => {
 
    selectedDay = 'Sunday'
 
-   filteredArray = schedule.filter((item) => item.toDoday === 'Sunday');
+   filter()
    renderSchedule(filteredArray);
  
 })
