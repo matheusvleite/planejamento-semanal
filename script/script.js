@@ -51,8 +51,6 @@ let selectedDay = 'Monday';
 
 let filteredArray;
 
-let todoCard;
-
 
 // FUNCTIONS
 
@@ -123,7 +121,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
 
       const element = document.getElementById(item.hourTodo.replace(':', '')+'_hour' + item.toDoday); // IF HAVE CONFLIT IN HOUR AND DAY
 
-      const before = 'Before';
+      let toDoCard;
 
       if(element) { // ADD NEW CARD IN CONFLIT
          
@@ -138,7 +136,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
          const toDoActivityRemove = document.createElement('button');
          toDoActivityRemove.classList.add('cards__planner-task-button');
          toDoActivityRemove.innerText = 'Apagar';
-         toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(index)})`);
+         toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(item)})`);
    
          toDoCard.appendChild(toDoActivity);
          toDoActivity.appendChild(toDoTextActivity);
