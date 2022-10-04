@@ -51,6 +51,8 @@ let selectedDay = 'Monday';
 
 let filteredArray;
 
+let toDoCard;
+
 
 // FUNCTIONS
 
@@ -120,8 +122,6 @@ function renderSchedule(schedule) { // RENDERING CARDS
       const item = schedule[index]
 
       const element = document.getElementById(item.hourTodo.replace(':', '')+'_hour' + item.toDoday); // IF HAVE CONFLIT IN HOUR AND DAY
-
-      let toDoCard;
 
       if(element) { // ADD NEW CARD IN CONFLIT
          
