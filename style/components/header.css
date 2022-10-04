@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.menu__header-item-saveButton:hover,
+.menu__header-item-deleteButton:hover {
+    opacity: .8;
+}
+
 .menu__header-item-deleteButton {
     background-color: var(--red-main);
     border: none;
@@ -57,6 +62,8 @@
     font-size: 17px;
     cursor: pointer;
 }
+
+
 
 .menu__header-item-time {
     text-align: center;

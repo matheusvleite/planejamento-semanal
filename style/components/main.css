@@ -43,6 +43,11 @@
     cursor: pointer;
 }
 
+.filter__form-addButton:hover,
+.filter__form-removeButton:hover {
+    opacity: .8;
+}
+
 .filter__form-removeButton {
     background-color: var(--red-main);
     border: none;

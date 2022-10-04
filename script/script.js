@@ -140,7 +140,7 @@ function renderSchedule(schedule) { // RENDERING CARDS
       const toDoActivityRemove = document.createElement('button');
       toDoActivityRemove.classList.add('cards__planner-task-button');
       toDoActivityRemove.innerText = 'Apagar';
-      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(toDoday)})`);
+      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(index)})`);
 
       toDoCard.appendChild(toDoActivity);
       toDoActivity.appendChild(toDoTextActivity);
@@ -160,7 +160,7 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
    const inputValue = toDoinput.value;
    const toDodayValue = toDoday.value;
    const hourInputValue = hourInput.value;
-   // clear();
+   clear();
    saveTodo(inputValue, toDodayValue, hourInputValue);
   
 })
