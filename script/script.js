@@ -167,9 +167,9 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
 
 buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS SELECTED FOR DAY
    if(selectedDay) {
-      schedule.splice(schedule.findIndex(e => 
-         e.toDoday === selectedDay));
-         saveLocalStorage()
+     const filter = schedule.splice(schedule.findIndex((item) => 
+         item.toDoday === selectedDay));
+         saveLocalStorage();
          renderSchedule();
    }else {
       alert('Não há nenhum dia selecionado para excluir.');
