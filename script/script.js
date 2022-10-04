@@ -30,6 +30,7 @@ const toDoinput = document.querySelector('#toDo-input');
 const toDoday = document.querySelector('#select-day');
 const hourInput = document.querySelector('#hourInput');
 const buttonRemoveAll = document.querySelector('.filter__form-removeButton');
+const cardsPlannerScroll = document.querySelector('.cards__planner')
 const cardsPlanner = document.querySelector('.cards__planner-list');
 const buttonSaveLocalStorage = document.querySelector('.menu__header-item-saveButton');
 const buttonCleanLocalStorage = document.querySelector('.menu__header-item-deleteButton');
@@ -253,6 +254,8 @@ buttonSunday.addEventListener('click', () => {
    renderSchedule(filteredArray);
  
 })
+
+cardsPlannerScroll.scrollTo(0,200) // SCROLL FIX
 
 // MENU ACTIVE 
 

@@ -1,12 +1,13 @@
 .cards__planner {
-    overflow: auto;
+    overflow: scroll;
     height: 50vh;
-    width: 79%;
+    width: 77%;
     margin: 0 auto;
+    transform: rotateX(180deg);
 }
 
 .cards__planner::-webkit-scrollbar {
-    width: 14px;
+    width: 16px;
 }
 
 .cards__planner::-webkit-scrollbar-track {
@@ -19,15 +20,22 @@
     border-radius: 100px;
 }
 
+.cards__planner::-webkit-scrollbar-corner {
+    display: none;
+}
+
 .cards__planner-list {
     display: flex;
     flex-direction: column;
+    margin: 0 -1rem;
+    height: 60vh;
+    transform: rotateX(180deg);
 }
 
 .cards__planner-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     padding-left: 4.8rem;
 }
 
