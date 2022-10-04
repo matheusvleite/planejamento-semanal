@@ -70,7 +70,7 @@ function filter() { // FILTER FOR DAY
 
 }
 
-function deletCard(index) { // DELET CARD
+function deletCard(index) { // DELET ONLY ONE CARD
   
    schedule.splice(index, 1);
 
@@ -160,14 +160,17 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
    const inputValue = toDoinput.value;
    const toDodayValue = toDoday.value;
    const hourInputValue = hourInput.value;
-   clear();
+   // clear();
    saveTodo(inputValue, toDodayValue, hourInputValue);
   
 })
 
-buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
+buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS SELECTED FOR DAY
    if(selectedDay) {
-      alert('teste');
+      schedule.splice(schedule.findIndex(e => 
+         e.toDoday === selectedDay));
+         saveLocalStorage()
+         renderSchedule();
    }else {
       alert('Não há nenhum dia selecionado para excluir.');
    }
@@ -175,11 +178,11 @@ buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
 
 // BUTTONS LOCALSTORAGE
 
-buttonSaveLocalStorage.addEventListener('click', () => { // SAVE
+buttonSaveLocalStorage.addEventListener('click', () => { // SAVE IN LOCALSTORAGE
    saveLocalStorage();
 })
 
-buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
+buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR LOCALSTORAGE
    localStorage.removeItem('toDo');
    schedule.length = 0;
    renderSchedule(schedule);
