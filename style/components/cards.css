@@ -1,3 +1,23 @@
+.cards__planner {
+    overflow: auto;
+    height: 50vh;
+    width: 79%;
+    margin: 0 auto;
+}
+
+.cards__planner::-webkit-scrollbar {
+    width: 14px;
+}
+
+.cards__planner::-webkit-scrollbar-track {
+    background: var(--white);
+    border-radius: 100px;
+}
+
+.cards__planner::-webkit-scrollbar-thumb {
+    background: #DCDFE3;
+    border-radius: 100px;
+}
 
 .cards__planner-list {
     display: flex;
@@ -12,7 +32,7 @@
 }
 
 .cards__planner-hour {
-    padding: 2rem 1.5rem;
+    padding: 2rem .85rem;
     border-radius: 10px;
     font-family: var(--font-secondary);
 }
@@ -52,8 +72,8 @@
 
 /* utilities */
 
-.clicked {
-    padding: 0.7rem 3rem;
+.active {
+    padding: 0.7rem 2.5rem;
 }
 
 .sameHour-bg {

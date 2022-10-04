@@ -64,7 +64,7 @@ function saveLocalStorage() { // LOCALSTORAGE
 
 }
 
-function filter() {
+function filter() { // FILTER FOR DAY
 
    filteredArray = schedule.filter((item) => item.toDoday === selectedDay);
 
@@ -73,6 +73,8 @@ function filter() {
 function deletCard(index) { // DELET CARD
   
    schedule.splice(index, 1);
+
+   saveLocalStorage()
 
    filter()
 
@@ -101,7 +103,7 @@ renderSchedule(filteredArray);
 function renderSchedule(schedule) { // RENDERING CARDS
 
    cardsPlanner.innerHTML = '';
- 
+   
    schedule.sort(function (a,b) { // FUNCTION ORDER TIME CARDS
       if(a.hourTodo < b.hourTodo) {
          return -1;
@@ -109,20 +111,20 @@ function renderSchedule(schedule) { // RENDERING CARDS
          return true;
       }
    });
-
+ 
    for (let index = 0; index < schedule.length; index++) {
 
       const item = schedule[index]
 
       const toDoCard = document.createElement('li');
       toDoCard.classList.add('cards__planner-item');
-
+    
       const toDoHour = document.createElement('div');
       toDoHour.classList.add('cards__planner-hour');
       toDoHour.classList.add(item.toDoday);
 
       const toDoTextHour = document.createElement('h2');
-      toDoTextHour.innerHTML = item.hourTodo;
+      toDoTextHour.innerHTML = item.hourTodo.replace(':', 'h')+'m';
 
       toDoCard.appendChild(toDoHour);
       toDoHour.appendChild(toDoTextHour);
@@ -158,14 +160,14 @@ toDoForm.addEventListener('submit', (e) => { // EVENT SUBMIT FORM
    const inputValue = toDoinput.value;
    const toDodayValue = toDoday.value;
    const hourInputValue = hourInput.value;
-   // clear();
+   clear();
    saveTodo(inputValue, toDodayValue, hourInputValue);
   
 })
 
 buttonRemoveAll.addEventListener('click', () => { //EVENT REMOVE ALL CARDS
    if(selectedDay) {
-      
+      alert('teste');
    }else {
       alert('Não há nenhum dia selecionado para excluir.');
    }
@@ -185,7 +187,6 @@ buttonCleanLocalStorage.addEventListener('click', () => { // CLEAR
 
 
 //BUTTONS DAYS
-
 
 buttonMonday.addEventListener('click', () => {
 
@@ -249,5 +250,16 @@ buttonSunday.addEventListener('click', () => {
    renderSchedule(filteredArray);
  
 })
+
+// MENU ACTIVE 
+
+$(document).ready(function() {
+    $('.filter__days-list-item').on('click', 
+    function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+})
+
 
 
