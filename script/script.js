@@ -34,13 +34,14 @@ const cardsPlannerScroll = document.querySelector('.cards__planner')
 const cardsPlanner = document.querySelector('.cards__planner-list');
 const buttonSaveLocalStorage = document.querySelector('.menu__header-item-saveButton');
 const buttonCleanLocalStorage = document.querySelector('.menu__header-item-deleteButton');
-const buttonMonday = document.getElementById('monday')
-const buttonTuesday = document.getElementById('tuesday')
-const buttonWednesday = document.getElementById('wednesday')
-const buttonThursday = document.getElementById('thursday')
-const buttonFriday = document.getElementById('friday')
-const buttonSaturday = document.getElementById('saturday')
-const buttonSunday = document.getElementById('sunday')
+const buttonMonday = document.getElementById('monday');
+const buttonTuesday = document.getElementById('tuesday');
+const buttonWednesday = document.getElementById('wednesday');
+const buttonThursday = document.getElementById('thursday');
+const buttonFriday = document.getElementById('friday');
+const buttonSaturday = document.getElementById('saturday');
+const buttonSunday = document.getElementById('sunday');
+
 
 // VARIABLES
 
@@ -49,6 +50,9 @@ const schedule = [] = JSON.parse(localStorage.getItem('toDo')) || [];
 let selectedDay = 'Monday';
 
 let filteredArray;
+
+let todoCard;
+
 
 // FUNCTIONS
 
@@ -112,43 +116,69 @@ function renderSchedule(schedule) { // RENDERING CARDS
          return true;
       }
    });
- 
+   
    for (let index = 0; index < schedule.length; index++) {
 
       const item = schedule[index]
 
-      const toDoCard = document.createElement('li');
-      toDoCard.classList.add('cards__planner-item');
-    
-      const toDoHour = document.createElement('div');
-      toDoHour.classList.add('cards__planner-hour');
-      toDoHour.classList.add(item.toDoday);
+      const element = document.getElementById(item.hourTodo.replace(':', '')+'_hour' + item.toDoday); // IF HAVE CONFLIT IN HOUR AND DAY
 
-      const toDoTextHour = document.createElement('h2');
-      toDoTextHour.innerHTML = item.hourTodo.replace(':', 'h')+'m';
+      const before = 'Before';
 
-      toDoCard.appendChild(toDoHour);
-      toDoHour.appendChild(toDoTextHour);
+      if(element) { // ADD NEW CARD IN CONFLIT
+         
+         const toDoActivity = document.createElement('div');
+         toDoActivity.classList.add('cards__planner-task');
+         toDoActivity.classList.add('sameHourBg')
 
-      const toDoActivity = document.createElement('div');
-      toDoActivity.classList.add('cards__planner-task');
-      toDoActivity.classList.add(item.toDoday + 'Before')
+         const toDoTextActivity = document.createElement('p');
+         toDoTextActivity.classList.add('cards__planner-task-text')
+         toDoTextActivity.innerHTML = item.toDo;
+   
+         const toDoActivityRemove = document.createElement('button');
+         toDoActivityRemove.classList.add('cards__planner-task-button');
+         toDoActivityRemove.innerText = 'Apagar';
+         toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(index)})`);
+   
+         toDoCard.appendChild(toDoActivity);
+         toDoActivity.appendChild(toDoTextActivity);
+         toDoActivity.appendChild(toDoActivityRemove);
 
-      const toDoTextActivity = document.createElement('p');
-      toDoTextActivity.classList.add('cards__planner-task-text')
-      toDoTextActivity.innerHTML = item.toDo;
-
-      const toDoActivityRemove = document.createElement('button');
-      toDoActivityRemove.classList.add('cards__planner-task-button');
-      toDoActivityRemove.innerText = 'Apagar';
-      toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(index)})`);
-
-      toDoCard.appendChild(toDoActivity);
-      toDoActivity.appendChild(toDoTextActivity);
-      toDoActivity.appendChild(toDoActivityRemove);
-
-      cardsPlanner.appendChild(toDoCard);
-      
+      } else {
+         
+         toDoCard = document.createElement('li');
+         toDoCard.classList.add('cards__planner-item');
+         toDoCard.setAttribute('id', `${item.hourTodo.replace(':', '')+'_hour' + item.toDoday}`);
+       
+         const toDoHour = document.createElement('div');
+         toDoHour.classList.add('cards__planner-hour');
+         toDoHour.classList.add(item.toDoday);
+   
+         const toDoTextHour = document.createElement('h2');
+         toDoTextHour.innerHTML = item.hourTodo.replace(':', 'h')+'m';
+   
+         toDoCard.appendChild(toDoHour);
+         toDoHour.appendChild(toDoTextHour);
+   
+         const toDoActivity = document.createElement('div');
+         toDoActivity.classList.add('cards__planner-task');
+         toDoActivity.classList.add(item.toDoday + 'Before');
+ 
+         const toDoTextActivity = document.createElement('p');
+         toDoTextActivity.classList.add('cards__planner-task-text')
+         toDoTextActivity.innerHTML = item.toDo;
+   
+         const toDoActivityRemove = document.createElement('button');
+         toDoActivityRemove.classList.add('cards__planner-task-button');
+         toDoActivityRemove.innerText = 'Apagar';
+         toDoActivityRemove.setAttribute('onclick', `deletCard(${schedule.indexOf(index)})`);
+   
+         toDoCard.appendChild(toDoActivity);
+         toDoActivity.appendChild(toDoTextActivity);
+         toDoActivity.appendChild(toDoActivityRemove);
+   
+         cardsPlanner.appendChild(toDoCard);
+      }
    }
 }
 

@@ -84,16 +84,41 @@
     padding: 0.7rem 2.5rem;
 }
 
-.sameHour-bg {
-    background-color: var(--error-hour);
+.sameHourBg {
+background-image: linear-gradient(112.83deg, rgba(255, 255, 255, 0.3444) 0%, rgba(255, 255, 255, 0.336) 110.84%);
+position: relative;
 }
 
-.sameHour-bg::before {
+.sameHourBg::before {
     content: "";
     width: 14px;
     height: 85px;
     background: var(--error);
     border-radius: 15px 0px 0px 15px;
+}
+
+.line {
+    content: '';
+    width: 99%;
+    height: 4px;
+    background-color: var(--conflit-hour);
+    position: absolute;
+    left: 8%;
+    top: 26%;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.line::before {
+    content: '';
+    width: 19px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: var(--conflit-hour);
+    position: absolute;
+    left: -1%;
+    top: -120%;
+    z-index: 1;
 }
 
 .Monday {
